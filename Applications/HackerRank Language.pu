@@ -1,0 +1,23 @@
+import re
+pat = '^(C:CPP:JAVA:PYTHON:PERL:PHP:RUBY:CSHARP:HASKELL:CLOJURE:BASH:SCALA:ERLANG:CLISP:LUA:BRAINFUCK:JAVASCRIPT:GO:D:OCAML:R:PASCAL:SBCL:DART:GROOVY:OBJECTIVEC)$'
+pat = pat.replace(':','|')
+ 
+for i in range(int(input())):
+    text = input()
+    word = re.findall(r'[a-zA-Z]+', text)
+ 
+    if re.search(pat, word[0]):
+        print('VALID')
+    else:
+        print('INVALID')
+ 
+ 
+Others
+import sys
+ 
+good = set('C:CPP:JAVA:PYTHON:PERL:PHP:RUBY:CSHARP:HASKELL:CLOJURE:BASH:SCALA:ERLANG:CLISP:LUA:BRAINFUCK:JAVASCRIPT:GO:D:OCAML:R:PASCAL:SBCL:DART:GROOVY:OBJECTIVEC'.split(':'))
+ 
+next(sys.stdin)
+for line in sys.stdin:
+    api_id, lng = line.split()
+    print('VALID' if lng in good else 'INVALID')
